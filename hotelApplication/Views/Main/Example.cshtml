@@ -1,0 +1,228 @@
+﻿
+@{
+    Layout = null;
+}
+<head>
+    <link rel="stylesheet" href="~/Content/css/reset.css">
+    <link rel="stylesheet" href="~/Content/css/slick.css">
+    <link rel="stylesheet" href="~/Content/css/jquery.fancybox.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/css/animate.css">
+    <link rel="stylesheet" href="~/Content/css/style.css">
+</head>
+<body>
+    <header class="HeaderMain">
+        <div class="container">
+            <div class="HeaderElementContact">
+                <div class="HeadLogo">
+                    <a asp-controller="Main" asp-action="Example">
+                        <img src="~/Content/logo.png" alt="Image" class="logoH">
+
+                    </a>
+                </div>
+
+                <div class="Contact">
+                    <img src="~/Content/icon1.png" alt="Image" class="Icon">
+                    <h3 class="Contact-title ">
+                        Вышка
+                    </h3>
+                    <p class="Contact-text">
+                        Астраханская обл., с. Вышка
+                    </p>
+
+                </div>
+                <div class="Contact Contact-phone">
+                    <img src="~/Content/icon2.png" alt="Image" class="Icon">
+                    <h3 class="Contact-title">
+                        +7 (926) 326-72-63
+                    </h3>
+                    <p class="Contact-text">
+                        Телефон для связи
+                    </p>
+
+                </div>
+                <div class="Contact Contact-mail">
+                    <img src="~/Content/icon3.png" alt="Image" class="Icon">
+                    <h3 class="Contact-title">
+                        info@mail.ru
+                    </h3>
+                    <p class="Contact-text">
+                        Напишите нам
+                    </p>
+                </div>
+            </div>
+
+            <nav class="menu">
+                <ul class="menu__list" style="  padding-left: 0px;">
+                    <li><a class="btn btn-sm sign-up" asp-controller="Main" asp-action="Example">Главная</a></li>
+                    <li><a class="btn btn-sm sign-up" href="#card1">Бронирование</a></li>
+                    <li>
+                        <div class="btn-group ">
+                            <button class="btn btn-sm dropdown-toggle sign-up" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Услуги
+                            </button>
+
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item " asp-controller="Main" asp-action="events">Мероприятия</a></li>
+                                <li><a class="dropdown-item " asp-controller="Main" asp-action="rent">Аренда техники</a></li>
+                                <li><a class="dropdown-item " asp-controller="Main" asp-action="provider">Дополнительные услуги</a></li>
+                            </ul>
+
+                        </div>
+
+
+                    </li>
+                    <li><a class="btn btn-sm sign-up" href="#">О нас</a></li>
+                    <li><a class="btn btn-sm sign-up" href="#">Контакты</a></li>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        <li><p class="menu__list">@User.Identity.Name</p></li>
+                        <li>
+                            <form method="post" asp-controller="Account" asp-action="Logout">
+                                <input type="submit" class="btn btn-sm sign-up" value="Выход"/>
+                                
+                            </form>
+                        </li>
+
+
+                    }
+                    else
+                    {
+                        <li><a class="btn btn-sm sign-up" asp-controller="Account" asp-action="Login">Войти</a></li>
+                        <li><a class="btn btn-sm sign-up" asp-controller="Account" asp-action="Register">Зарегистрироваться</a></li>
+
+                    }
+                </ul>
+
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div id="carouselControls" class="carousel slide animated fadeInLeft" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="~/Content/slide4.jpg" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="~/Content/slide2.jpg" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="~/Content/slide3.jpg" alt="Third slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="~/Content/slide1.jpg" alt="Four slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselControls" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only"></span>
+                </a>
+                <a class="carousel-control-next" href="#carouselControls" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only"></span>
+                </a>
+            </div>
+            <div class="site-section animated ">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="~/Content/about.jpg" alt="Image" class="img-fluid">
+                    </div>
+                    <div class="col-md-6">
+
+                        <h3 class="heading-92913 text-black">Добро пожаловать на наш сайт</h3>
+                        <p>Каспийский лотос - это база отдыха с рыбалкой и проживанием в домиках вблизи раскатов Каспия. Местность подходит для охоты на водоплавающую дичь и подводной охоты.</p>
+                        <p>База Каспийкий лотос расположена в 1,5 км от села Вышка и в 150 км от Астрахани. Территория базы находится у воды. Для гостевого водного транспорта имеется стоянка и оборудованный лодочный спуск.</p>
+                        <p><a href="#" class="btn btn-primary py-3 px-4">Узнать больше</a></p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="card-deck animated ">
+                <div class="card">
+                    <img class="card-img-top" src="~/Content/kater.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Большой выбор плавсредств</h5>
+                        <p class="card-text">-аренда катера: <br>North Silver PRO; <br>BUSTER MAGNUM <br>-аренда теплохода КС -110-35;</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="~/Content/card2.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Подводная охота</h5>
+                        <p class="card-text">В нашей базе отдыха имеется увлекательная возможность посетить подводную охоту.</p>
+
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="~/Content/card1.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Зона отдыха</h5>
+                        <p class="card-text">Комфортное времяпровозжения в зоне барбекю, а также бассейн и спортивная площадка.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services animated ">
+                <p class="services-title">Наши услуги</p>
+            </div>
+
+
+            <div class="card-deck card-deck1 animated ">
+                <div class="card card1" id="card1">
+                    <img class="card-img-top1" src="~/Content/bron1.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">2-х местный домик</h5>
+                        <p class="card-text">Проживание в 2-х местном номере со всеми удобствами (оборудованная кухня, санузел, сплит-система);<br> Стоимость одного дня для одного человека 850 рублей </p>
+                        <p><a asp-controller="Main" asp-action="house" class="btn btn-primary py-3 px-4">Бронировать</a></p>
+                    </div>
+                </div>
+                <div class="card card1" id="card1">
+                    <img class="card-img-top1" src="~/Content/house1-3.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">4-х местный домик</h5>
+                        <p class="card-text">Проживание в 4-х местном номере со всеми удобствами (оборудованная кухня, санузел, сплит-система);<br> Стоимость одного дня для одного человека 850 рублей </p>
+                        <p><a href="#" class="btn btn-primary py-3 px-4">Бронировать</a></p>
+                    </div>
+                </div>
+                <div class="card card1" id="card1">
+                    <img class="card-img-top1" src="~/Content/teplo.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Аренда теплохода</h5>
+                        <p class="card-text card-text1">Вашему вниманию представляется теплоход <br>КС -110-35 для посещения лотосных полей<br> и прогулок </p>
+                        <p><a asp-controller="Main" asp-action="rent" class="btn btn-primary py-3 px-4">Бронировать</a></p>
+                    </div>
+                </div>
+
+            </div>
+            <section class="interactive animated ">
+                <div class="interactive-title">
+                    <p>Интерактивная карта бронирования</p>
+                </div>
+                <img usemap="#Crossroad" src="~/Content/territories.jpg" width="1170px" height="870px" border="0">
+                <map name="Crossroad">
+                    <area shape="rect" title="2-х местный домик" coords="725, 222, 778, 327" href="house.html">
+                    <area shape="rect" title="4-х местный домик" coords="592, 479, 616, 570" href="house.html">
+                </map>
+            </section>
+            <section class="Navigate animated ">
+                <div class="Nav-body">
+                    <p class="Nav-title">Расположение базы отдыха Каспийский лотос</p>
+                    <p class="nav-text">Астраханская обл., с. Вышка</p>
+                </div>
+                <div class="navigator">
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aae8052bfe36d2a624622ecee35ff0455b28f2681abea2d93487e8463ff684e30&amp;source=constructor" width="1170" height="400" frameborder="0"></iframe>
+                </div>
+            </section>
+        </div>
+
+    </main>
+    <footer id="footer" class="footer">
+        <div class="container">
+            <p class="credits">© Все права защищены.</p>
+        </div>
+    </footer>
+</body>

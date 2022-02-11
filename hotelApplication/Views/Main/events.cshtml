@@ -1,0 +1,229 @@
+﻿
+@{
+    Layout = null;
+}
+<head>
+    <link rel="stylesheet" href="~/Content/css/reset.css">
+    <link rel="stylesheet" href="~/Content/css/slick.css">
+    <link rel="stylesheet" href="~/Content/css/jquery.fancybox.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/css/animate.css">
+    <link rel="stylesheet" href="~/Content/css/style.css">
+</head>
+<body>
+    <header class="HeaderMain">
+        <div class="container">
+            <div class="HeaderElementContact">
+                <div class="HeadLogo">
+                    <a asp-controller="Main" asp-action="Example">
+                        <img src="~/Content/logo.png" alt="Image" class="logoH">
+
+                    </a>
+                </div>
+
+                <div class="Contact">
+                    <img src="~/Content/icon1.png" alt="Image" class="Icon">
+                    <h3 class="Contact-title ">
+                        Вышка
+                    </h3>
+                    <p class="Contact-text">
+                        Астраханская обл., с. Вышка
+                    </p>
+
+                </div>
+                <div class="Contact Contact-phone">
+                    <img src="~/Content/icon2.png" alt="Image" class="Icon">
+                    <h3 class="Contact-title">
+                        +7 (926) 326-72-63
+                    </h3>
+                    <p class="Contact-text">
+                        Телефон для связи
+                    </p>
+
+                </div>
+                <div class="Contact Contact-mail">
+                    <img src="~/Content/icon3.png" alt="Image" class="Icon">
+                    <h3 class="Contact-title">
+                        info@mail.ru
+                    </h3>
+                    <p class="Contact-text">
+                        Напишите нам
+                    </p>
+                </div>
+            </div>
+
+            <nav class="menu">
+                <ul class="menu__list">
+                    <li><a class="btn btn-sm sign-up" asp-controller="Main" asp-action="Example">Главная</a></li>
+                    <li><a class="btn btn-sm sign-up" href="#card1">Бронирование</a></li>
+                    <li>
+                        <div class="btn-group ">
+                            <button class="btn btn-sm dropdown-toggle sign-up" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Услуги
+                            </button>
+
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item " asp-controller="Main" asp-action="events">Мероприятия</a></li>
+                                <li><a class="dropdown-item " asp-controller="Main" asp-action="rent">Аренда техники</a></li>
+                                <li><a class="dropdown-item " asp-controller="Main" asp-action="provider">Дополнительные услуги</a></li>
+                            </ul>
+
+                        </div>
+
+
+                    </li>
+                    <li><a class="btn btn-sm sign-up" href="#">О нас</a></li>
+                    <li><a class="btn btn-sm sign-up" href="#">Контакты</a></li>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        <li><p class="menu__list">@User.Identity.Name</p></li>
+                        <li>
+                            <form method="post" asp-controller="Account" asp-action="Logout">
+                                <input type="submit" class="btn btn-sm sign-up" value="Выход" />
+
+                            </form>
+                        </li>
+
+
+                    }
+                    else
+                    {
+                        <li><a class="btn btn-sm sign-up" asp-controller="Account" asp-action="Login">Войти</a></li>
+                        <li><a class="btn btn-sm sign-up" asp-controller="Account" asp-action="Register">Зарегистрироваться</a></li>
+
+                    }
+                </ul>
+
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="main-title">
+                <p class="main-text">Мероприятия организуемые нашей базой отдыха</p>
+            </div>
+            <div id="carouselControls" class="carousel slide animated fadeInLeft" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="~/Contentimages/korp1.jpg" alt="First slide" style="object-fit: cover">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="~/Contentimages/teambild.jpg" alt="Second slide" style="object-fit: cover">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="~/Contentimages/fish.jpg" alt="Third slide" style="object-fit: cover">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselControls" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only"></span>
+                </a>
+                <a class="carousel-control-next" href="#carouselControls" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only"></span>
+                </a>
+            </div>
+
+            <section class="site-section site-section1 animated">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card">
+                            <img src="~/Content/fishsorev.jpg" class="card-img-top" alt="fish">
+                            <div class="card-body">
+                                <h5 class="card-title">Соревнования по рыбной ловле</h5>
+                                <p class="card-text">
+                                    На территории нашей турбазы переодически проводятся соревнованияя рыбаков в разных номинациях.<br>
+                                    Номинации турнира:
+                                    <br />&#8211; Мужчины – 1,2,3 и 13(счастливчик) место
+                                    <br />&#8211; Женщины — 1,2,3 и 13(счастливчик) место
+                                    <br />&#8211; Дети до 14 лет — 1,2,3, 4(деревянная медаль) и 13(счастливчик) место
+                                    <br />&#8211;Самый молодой участник (возраст)
+                                    <br />&#8211;Ветеран рыболовства (возраст)
+                                    <br />&#8211;Специальная Номинация: папа, мама, я — рыболовная семья
+                                    <br />&#8211;Биг-фиш фестиваля
+                                    <br />&#8211;Неожиданный улов
+                                </p>
+                                <p><a href="#" class="btn btn-primary py-3 px-4">Узнать больше</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="~/Content/korp2.jpg" class="card-img-top" alt="korp">
+                            <div class="card-body">
+                                <h5 class="card-title">Организация корпоративов</h5>
+                                <p class="card-text">Корпоративы — события всегда долгожданные и значимые для членов вашего коллектива. Корпоративы часть корпоративной культуры и важный элемент лояльности персонала. А поводов для корпоративного отдыха великое множество: юбилей компании, день рождения руководителя или сотрудника, Новый год, международные и профессиональные праздники.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="~/Content/teambilding.jpg" class="card-img-top" alt="teambilding">
+                            <div class="card-body">
+                                <h5 class="card-title">Тимбилдинг</h5>
+                                <p class="card-text">
+                                    Хочется повысить производительность труда и эффективность производства?
+                                    Беспокоит неслаженная работа и конфликты внутри коллектива? Вам кажется, что ваши сотрудники устали?
+                                    Хотите создать позитивную атмосферу в коллективе и стать единой рабочей семьей?
+                                    Тогда тимбилдинг в базе отдыха «Каспийский лотос» будет для вас отличным решением для проведения командообразующих корпоративных тренингов, мотивационных игр и соревнований, призванных сплотить коллектив и поднять командный дух.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="~/Content/waterhunt.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Соревнования по похводной охоте</h5>
+                                <p class="card-text">
+                                    На территории нашей турбазы переодически проводятся соревнованияя по подводной охоте в разных номинациях.<br>
+                                    Номинации турнира:
+                                    <br />&#8211; Самая крупная рыба
+                                    <br />&#8211; Самое большое количество хвостов
+                                    <br />&#8211; Мистер Карась
+                                    <br />&#8211;Мистер Линь
+                                    <br />&#8211;Мистер Лещ
+                                    <br />&#8211;Мистер Сазан
+                                    <br />&#8211;Самый молодой охотник
+                                    <br />&#8211;Возраст не помеха
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="~/Content/masterfish.jpg" class="card-img-top" alt="masterfish">
+                            <div class="card-body">
+                                <h5 class="card-title">Мастер-класс по приготовлению рыбы</h5>
+                                <p class="card-text">
+                                    Это совершенно особенный мастер-класс. На нём мы не просто учим вас готовить вкусные, полезные и лёгкие блюда из морепродуктов и рыбы. Мы учим волшебству и магии деталей. Судите сами, знаменитая на весь мир паэлья или суп буйабесс — типичные блюда рыбаков, но вот в рыбную похлёбку к предварительно обжаренным овощам, нескольким видам морской рыбы, чесноку, орехам, фенхелю мы добавляем, скажем, кальвадос и омаров и — «вуаля!» — получаем изысканное блюдо модного гастрономического ресторана.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="~/Content/torzhestvo.jpg" class="card-img-top" alt="torzhestvo">
+                            <div class="card-body">
+                                <h5 class="card-title">Проведение торжеств и юбилеев</h5>
+                                <p class="card-text">
+                                    Проведение праздников – юбилеев, дней рождения и торжественных мероприятий всегда очень волнительное, организационно трудное. Часто хочется, чтобы именно ваш праздник запомнился своей оригинальностью гостям и надолго остался в памяти у близких людей, приглашенных на празднование.
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer id="footer" class="footer">
+        <div class="container">
+            <p class="credits">© Все права защищены.</p>
+        </div>
+    </footer>
+</body>
